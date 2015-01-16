@@ -5,17 +5,25 @@
  */
 package gui;
 
+import java.io.IOException;
+import redditplayer.gui.components.SearchTextField;
+
 /**
  *
  * @author Michu
  */
 public class RedditPlayerGUI extends javax.swing.JFrame {
 
+    SearchTextField stf;
     /**
      * Creates new form RedditPlayerGUI
      */
-    public RedditPlayerGUI() {
+    public RedditPlayerGUI(){
         initComponents();
+        stf = new SearchTextField();
+        try{
+            stf.getSite("chillstep");
+        }catch(IOException ex){}
     }
 
     /**
