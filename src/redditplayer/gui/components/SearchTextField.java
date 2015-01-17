@@ -5,6 +5,7 @@
  */
 package redditplayer.gui.components;
 
+import gui.ScrollPanel;
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,13 +19,17 @@ import java.util.Arrays;
  * @author Gwozdziu
  */
 public class SearchTextField {
+    
+    ScrollPanel scrollPanel;
+    
 
     public void getSite(String tag) throws IOException {
         ArrayList<String> word = new ArrayList();
+        scrollPanel = new ScrollPanel();
         word = siteWords(setUrl(tag));
         getLinks(word);
     }
-
+    
     private URL setUrl(String tag) throws IOException {
         String urlText = "http://www.reddit.com/r/" + tag;
         return new URL(urlText);

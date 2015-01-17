@@ -19,11 +19,12 @@ public class RedditPlayerGUI extends javax.swing.JFrame {
      * Creates new form RedditPlayerGUI
      */
     public RedditPlayerGUI(){
-        initComponents();
         stf = new SearchTextField();
         try{
             stf.getSite("psybient");
         }catch(IOException ex){}
+        initComponents();
+        
     }
 
     /**
@@ -35,8 +36,8 @@ public class RedditPlayerGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        scrollPanel = new javax.swing.JScrollPane();
         ratingPanel1 = new gui.RatingPanel();
+        scrollPanel2 = new gui.ScrollPanel();
         menuBar = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
         menuChooseSubreddit = new javax.swing.JMenuItem();
@@ -60,16 +61,16 @@ public class RedditPlayerGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ratingPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(scrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(scrollPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollPanel)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(225, Short.MAX_VALUE)
                 .addComponent(ratingPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
+            .addComponent(scrollPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -103,10 +104,8 @@ public class RedditPlayerGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RedditPlayerGUI().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new RedditPlayerGUI().setVisible(true);
         });
     }
 
@@ -115,6 +114,6 @@ public class RedditPlayerGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuChooseSubreddit;
     private javax.swing.JMenu menuFile;
     private gui.RatingPanel ratingPanel1;
-    private javax.swing.JScrollPane scrollPanel;
+    private gui.ScrollPanel scrollPanel2;
     // End of variables declaration//GEN-END:variables
 }
