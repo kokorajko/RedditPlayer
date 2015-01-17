@@ -15,16 +15,15 @@ import redditplayer.gui.components.SearchTextField;
 public class RedditPlayerGUI extends javax.swing.JFrame {
 
     SearchTextField stf;
+
     /**
      * Creates new form RedditPlayerGUI
      */
-    public RedditPlayerGUI(){
+    public RedditPlayerGUI() {
         stf = new SearchTextField();
-        try{
-            stf.getSite("psybient");
-        }catch(IOException ex){}
-        initComponents();
         
+        initComponents();
+
     }
 
     /**
@@ -108,7 +107,11 @@ public class RedditPlayerGUI extends javax.swing.JFrame {
             public void run() {
                 new RedditPlayerGUI().setVisible(true);
             }
+
         });
+
+
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
