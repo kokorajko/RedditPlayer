@@ -20,7 +20,7 @@ import java.util.Arrays;
  */
 public class SearchTextField {
 
-    ScrollPanel scrollPanel = new ScrollPanel();
+    
     
     private ArrayList<String> word = new ArrayList();
 

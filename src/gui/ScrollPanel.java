@@ -5,8 +5,11 @@
  */
 package gui;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import redditplayer.gui.components.SearchTextField;
 
 /**
@@ -21,6 +24,8 @@ public class ScrollPanel extends javax.swing.JPanel {
     public ScrollPanel() {
         initComponents();
     }
+    
+    SearchTextField searchTextField = new SearchTextField();
 
     ArrayList<String> linksList = new ArrayList<>();
 
@@ -33,9 +38,16 @@ public class ScrollPanel extends javax.swing.JPanel {
     }
 
     public String linksFromArrayList() {
-        String links = "";
-        for (int i = 0; i < linksList.size(); i++) {
-            links = links + "\r\n" + linksList.get(i).toString();
+        String links = "Tag nie działa";
+        try {
+            linksList = searchTextField.siteArray("psybient");
+            links = "";
+            for (String linksList1 : linksList) {
+                links += "\r\n" + linksList1;
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ScrollPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return links;
     }
