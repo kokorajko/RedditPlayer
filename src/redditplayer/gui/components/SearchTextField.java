@@ -19,15 +19,23 @@ import java.util.Arrays;
  * @author Gwozdziu
  */
 public class SearchTextField {
-    
-    ScrollPanel scrollPanel;
-    
 
-    public void getSite(String tag) throws IOException {
-        ArrayList<String> word = new ArrayList();
-        scrollPanel = new ScrollPanel();
-        word = siteWords(setUrl(tag));
+    ScrollPanel scrollPanel = new ScrollPanel();
+    
+    private ArrayList<String> word = new ArrayList();
+
+    private ArrayList<String> getWord() {
+        return word;
+    }
+
+    private void setWord(ArrayList<String> word) {
+        this.word = word;
+    }
+
+    public ArrayList<String> siteArray(String tag) throws IOException {
+        ArrayList<String> word = siteWords(setUrl(tag));
         getLinks(word);
+        return new ArrayList(getWord());
     }
     
     private URL setUrl(String tag) throws IOException {
@@ -61,9 +69,6 @@ public class SearchTextField {
         clearLinks(soundLinks);
     }
 
- 
-
-
     private void clearLinks(ArrayList word) {
         for (int i = 0; i < word.size(); i++) {
             word.set(i, word.get(i).toString().substring(6, word.get(i).toString().length() - 1)).toString();
@@ -72,6 +77,7 @@ public class SearchTextField {
                 i--;
             }
         }
+        setWord(word);
         showLinks(word);
     }
 
@@ -80,4 +86,5 @@ public class SearchTextField {
             System.out.println(word1);
         }
     }
+
 }
