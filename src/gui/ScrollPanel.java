@@ -21,8 +21,6 @@ public class ScrollPanel extends javax.swing.JPanel {
     public ScrollPanel() {
         initComponents();
     }
-    
-    int elo;
 
     ArrayList<String> linksList = new ArrayList<>();
 
